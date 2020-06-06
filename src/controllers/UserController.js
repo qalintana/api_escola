@@ -3,8 +3,8 @@ import User from "../models/User";
 class UserController {
   async store(req, res) {
     try {
-      const novoUser = await User.create(req.body);
-      return res.json(novoUser);
+      const { id, nome, email } = await User.create(req.body);
+      return res.json({ id, nome, email });
     } catch (error) {
       return res
         .status(400)
@@ -49,8 +49,8 @@ class UserController {
 
   async delete(req, res) {
     try {
-      const { id } = req.params;
-      const user = await User.findByPk(id);
+      const { userId } = req;
+      const user = await User.findByPk(userId);
       await user.destroy();
       return res.json(null);
     } catch (error) {
