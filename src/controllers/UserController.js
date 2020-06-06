@@ -1,7 +1,7 @@
 import User from "../models/User";
 
 class UserController {
-  async create(req, res) {
+  async store(req, res) {
     try {
       const novoUser = await User.create(req.body);
       return res.json(novoUser);
@@ -41,6 +41,17 @@ class UserController {
 
       const userUpdated = await user.update(req.body);
       return res.json(userUpdated);
+    } catch (error) {
+      return res.json(null);
+    }
+  }
+
+  async delete(req, res) {
+    try {
+      const { id } = req.params;
+      const user = await User.findByPk(id);
+      await user.destroy();
+      return res.json(null);
     } catch (error) {
       return res.json(null);
     }
