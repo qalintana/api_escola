@@ -16,5 +16,6 @@ module.exports = {
     "no-console": "off",
     avoidEscape: true,
     "class-methods-use-this": "off",
+    "no-param-reassign": "off",
   },
 };
