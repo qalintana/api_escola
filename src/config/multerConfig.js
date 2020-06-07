@@ -1,7 +1,6 @@
 import multer, { MulterError } from "multer";
 import { extname, resolve } from "path";
 
-
 const aleatoria = () => Math.floor(Math.random() * 1000 * 2000);
 
 export default {
@@ -13,7 +12,7 @@ export default {
   },
   storage: multer.diskStorage({
     destination: (req, file, cb) => {
-      cb(null, resolve(__dirname, "..", "..", "uploads"));
+      cb(null, resolve(__dirname, "..", "..", "uploads", "images"));
     },
     filename: (req, file, cb) => {
       cb(null, `${Date.now()}_${aleatoria()}${extname(file.originalname)}`);

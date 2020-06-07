@@ -7,7 +7,7 @@ class AlunoController {
       include: [
         {
           model: Foto,
-          attributes: ["originalname", "filename"],
+          attributes: ["originalname", "filename", "url"],
         },
       ],
       attributes: ["nome", "sobrenome", "idade"],
@@ -60,7 +60,7 @@ class AlunoController {
         include: [
           {
             model: Foto,
-            attributes: ["originalname", "filename"],
+            attributes: ["originalname", "filename", "url"],
           },
         ],
         order: [[Foto, "id", "DESC"]],
